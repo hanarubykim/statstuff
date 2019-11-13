@@ -1,14 +1,16 @@
-#include <sys.stat.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int main(){
 //file size
   struct stat st;
   stat("main.c", &st);
-  printf("The size of this file is %d bytes", st.st_size);
+  printf("The size of this file is %ld bytes\n\n", st.st_size);
 //mode (permissions)
-  printf("The mode of this file is %s", st.st_mode);
+  printf("The mode of this file is %d\n\n", st.st_mode);
 //time of last access (displayed in the following format: Fri Oct 28 09:03:01 2016
-  printf("The time this file was last accessed is %s", st.atime);
+  printf("The time this file was last accessed is %ld\n\n", st.st_atime);
 
 //Modify the size so it is printed out in human readable form (that is using B, KB, MB, GB).
 
